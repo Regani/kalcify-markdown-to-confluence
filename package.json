@@ -1,0 +1,36 @@
+{
+  "name": "kalcify-markdown-to-confluence",
+  "version": "0.1.0",
+  "description": "Convert Markdown to Confluence Cloud rich-text HTML and Server/Data Center wiki markup, with conversion notices.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "exports": { ".": { "types": "./dist/convert.d.ts", "import": "./dist/convert.js" } },
+  "types": "./dist/convert.d.ts",
+  "bin": { "kalcify-markdown-to-confluence": "./dist/cli.js" },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "test": "vitest run",
+    "build": "node scripts/build.mjs",
+    "prepack": "npm run build"
+  },
+  "keywords": ["markdown", "confluence", "confluence-cloud", "wiki-markup", "converter", "cli"],
+  "homepage": "https://kalcify.org/tools/markdown-to-confluence-converter/",
+  "repository": "github:Regani/kalcify-markdown-to-confluence",
+  "author": "Kalcify (https://kalcify.org)",
+  "license": "MIT",
+  "dependencies": {
+    "mdast-util-from-markdown": "2.0.3",
+    "mdast-util-gfm": "3.1.0",
+    "micromark-extension-gfm": "3.0.0",
+    "micromark-util-sanitize-uri": "2.0.1"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "~5.9.3",
+    "vitest": "^4.1.10"
+  }
+}
